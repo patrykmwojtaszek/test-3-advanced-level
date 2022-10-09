@@ -1,7 +1,6 @@
 package pl.kurs.test3advancedlevel.service;
 
 import pl.kurs.test3advancedlevel.model.Job;
-import pl.kurs.test3advancedlevel.model.Letter;
 
 public interface IJobExecutorService {
 

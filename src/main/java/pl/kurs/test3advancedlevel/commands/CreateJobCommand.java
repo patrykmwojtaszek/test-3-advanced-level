@@ -1,11 +1,9 @@
 package pl.kurs.test3advancedlevel.commands;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import pl.kurs.test3advancedlevel.model.Letter;
-import pl.kurs.test3advancedlevel.validators.DuplicatedLetter;
 import pl.kurs.test3advancedlevel.validators.InvalidLetter;
 import pl.kurs.test3advancedlevel.validators.InvalidQuantity;
-import pl.kurs.test3advancedlevel.validators.JobTooLong;
+
 import javax.validation.constraints.PositiveOrZero;
 
 

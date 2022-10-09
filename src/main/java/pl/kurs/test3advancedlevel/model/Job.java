@@ -17,8 +17,6 @@ public class Job implements Serializable {
 
     private String uuid;
 
-    // character o nazwie letter
-//    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Character letter;
 
@@ -28,7 +26,6 @@ public class Job implements Serializable {
     @Column(nullable = false)
     private int delay;
 
-    //@JsonFormat(shape = JsonFormat.Shape.STRING)
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private JobStatus jobStatus;

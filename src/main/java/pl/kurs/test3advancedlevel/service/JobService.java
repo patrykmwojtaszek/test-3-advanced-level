@@ -40,11 +40,6 @@ public class JobService implements IJobService{
         return jobRepository.findJobByUuid(uuid) .orElseThrow(() -> new NoEntityException("Entity with uuid " + uuid + " do not exists"));
     }
 
-//    @Override
-//    public void cancel(String uuid) {
-////        if (Objects.isNull(uuid)) throw new WrongIdException("Id should be not null");
-////        if (jobRepository.findJobByUuid(uuid).map(x -> x.getJobStatus()).)
-//    }
 
     @Override
     public Job findJobById(Long id) {
@@ -60,19 +55,8 @@ public class JobService implements IJobService{
     }
 
     @Override
-    public List<Job> getAllJobs() {
-        return jobRepository.findAll();
-    }
-
-    @Override
-    public List<Job> getAllActiveJobs() {
-        return null;
-    }
-
-    @Override
     public Job update(Job entity) {
         if (Objects.isNull(entity)) throw new NoEntityException("No entity to add!");
-//        if (Objects.nonNull(entity.getId())) throw new WrongIdException("Id should be null");
         return jobRepository.save(entity);
     }
 

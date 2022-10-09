@@ -38,7 +38,8 @@ public class JobController {
     public ResponseEntity<JobSimpleDto> addJob(@Valid @RequestBody CreateJobCommand createJobCommand) throws InterruptedException {
         Job jobForSave = mapper.map(createJobCommand, Job.class);
 
-//        if (jobService.findJobByLetter(jobForSave.getLetter()).getJobStatus() == JobStatus.RUNNING ) throw new RuntimeException("DUPLICATED_LETTER");
+        // JEZELI WALIDACJA DUPLICATED LETTER ZADZIALA - USUN TEN WIERSZ
+        if (jobService.findJobByLetter(jobForSave.getLetter()).getJobStatus() == JobStatus.RUNNING ) throw new RuntimeException("DUPLICATED_LETTER");
 
         jobForSave = jobExecutorService.createAndStartJob(jobForSave.getLetter(), jobForSave.getQuantity(), jobForSave.getDelay());
         JobSimpleDto jobSimpleDto = mapper.map(jobForSave, JobSimpleDto.class);

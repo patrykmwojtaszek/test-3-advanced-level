@@ -4,7 +4,6 @@ import com.fasterxml.uuid.NoArgGenerator;
 import org.springframework.stereotype.Service;
 import pl.kurs.test3advancedlevel.model.Job;
 import pl.kurs.test3advancedlevel.model.JobStatus;
-import pl.kurs.test3advancedlevel.model.Letter;
 
 @Service
 public class JobCreatorService implements IJobCreatorService{

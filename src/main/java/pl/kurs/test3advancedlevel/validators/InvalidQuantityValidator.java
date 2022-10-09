@@ -1,7 +1,5 @@
 package pl.kurs.test3advancedlevel.validators;
 
-import pl.kurs.test3advancedlevel.model.Letter;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 

@@ -1,7 +1,5 @@
 package pl.kurs.test3advancedlevel.commands;
 
-import pl.kurs.test3advancedlevel.model.Letter;
-
 public class UpdateJobCommand {
 
     private Long id;

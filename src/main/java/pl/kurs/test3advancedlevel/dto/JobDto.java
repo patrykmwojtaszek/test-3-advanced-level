@@ -1,7 +1,5 @@
 package pl.kurs.test3advancedlevel.dto;
 
-import pl.kurs.test3advancedlevel.model.Letter;
-
 public class JobDto {
 
     private Long id;

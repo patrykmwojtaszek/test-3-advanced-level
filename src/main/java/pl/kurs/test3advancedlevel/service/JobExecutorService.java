@@ -2,10 +2,7 @@ package pl.kurs.test3advancedlevel.service;
 
 import org.springframework.stereotype.Service;
 import pl.kurs.test3advancedlevel.model.Job;
-import pl.kurs.test3advancedlevel.model.JobStatus;
-import pl.kurs.test3advancedlevel.model.Letter;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;

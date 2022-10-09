@@ -13,8 +13,6 @@ public interface IJobService {
     Job findJobByUuid(String uuid);
     Job findJobById(Long id);
     Job findJobByLetter(Character letter);
-    List<Job> getAllJobs();
-    List<Job> getAllActiveJobs();
     Job update(Job entity);
 
 }
