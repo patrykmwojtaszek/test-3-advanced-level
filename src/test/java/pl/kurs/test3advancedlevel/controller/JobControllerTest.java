@@ -95,11 +95,7 @@ public class JobControllerTest {
         job.setUuid("xxx");
         JobSimpleDto jobSimpleDto = new JobSimpleDto("xxx");
 
-//        Mockito.when(mapper.map(Mockito.any(CreateJobCommand.class), Job.class)).thenReturn(job);
         Mockito.when(mapper.map(Mockito.any(CreateJobCommand.class), Mockito.eq(Job.class))).thenReturn(job);
-
-//        Mockito.when(jobService.findJobByLetter(Mockito.any(Character.class)).getJobStatus() == JobStatus.RUNNING).thenReturn(false);
-//        Mockito.when(jobService.findJobByLetter(Mockito.any(Character.class)).getJobStatus()).thenReturn(JobStatus.NOT_STARTED);
         Mockito.when(jobService.findJobByLetter(Mockito.any(Character.class))).thenReturn(job);
 
         Mockito.when(jobExecutorService.createAndStartJob(Mockito.any(Character.class), Mockito.any(int.class), Mockito.any(int.class))).thenReturn(job);
@@ -127,8 +123,34 @@ public class JobControllerTest {
     @Synchronized
     public void cancelJob_shouldCancelJob() throws Exception {
         //given
-        Job job = new Job('x', 3, 10);
+        Job job = new Job('a', 3, 10);
         job.setJobStatus(JobStatus.RUNNING);
+
+        String json = objectMapper.writeValueAsString(job);
+        //when
+        String response = postman.perform(post("/api/jobs")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json))
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        JobSimpleDto responseObj = objectMapper.readValue(response, JobSimpleDto.class);
+        Thread.sleep(100);
+
+        //then
+        postman.perform(post("/api/jobs/" + responseObj.getUuid() + "/cancel"))
+                .andExpect(status().isCreated());
+
+        postman.perform(post("/api/jobs/" + responseObj.getUuid() + "/cancel"))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    @Synchronized
+    public void findJobByUuid_shouldFindJobByUuid() throws Exception {
+        //given
+        Job job = new Job('y', 2, 20);
 
         String json = objectMapper.writeValueAsString(job);
         //when
@@ -142,37 +164,8 @@ public class JobControllerTest {
         JobSimpleDto responseObj = objectMapper.readValue(response, JobSimpleDto.class);
 
         //then
-        postman.perform(post("/api/jobs/" + responseObj.getUuid() + "/cancel"))
-                .andExpect(status().isCreated());
-
-//        // USUN TO
-//        postman.perform(get("/api/jobs/" + responseObj.getUuid()))
-//                .andExpect(status().isOk());
-
-        postman.perform(post("/api/jobs/" + responseObj.getUuid() + "/cancel"))
-                .andExpect(status().isBadRequest());
+        postman.perform(get("/api/jobs/" + responseObj.getUuid()))
+                .andExpect(status().isOk());
     }
-
-//    @Test
-//    @Synchronized
-//    public void findJobByUuid_shouldFindJobByUuid() throws Exception {
-//        //given
-//        Job job = new Job('y', 2, 20);
-//
-//        String json = objectMapper.writeValueAsString(job);
-//        //when
-//        String response = postman.perform(post("/api/jobs")
-//                .contentType(MediaType.APPLICATION_JSON)
-//                .content(json))
-//                .andReturn()
-//                .getResponse()
-//                .getContentAsString();
-//
-//        JobSimpleDto responseObj = objectMapper.readValue(response, JobSimpleDto.class);
-//
-//        //then
-//        postman.perform(get("/api/jobs/" + responseObj.getUuid()))
-//                .andExpect(status().isOk());
-//    }
 
 }

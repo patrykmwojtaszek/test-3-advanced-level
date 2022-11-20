@@ -135,6 +135,7 @@
                                 <exclude>**/*pl/kurs/test3advancedlevel/exceptions/*</exclude>
                                 <exclude>**/*pl/kurs/test3advancedlevel/model/*</exclude>
                                 <exclude>**/*pl/kurs/test3advancedlevel/validators/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/Test3AdvancedLevelApplication</exclude>
                             </excludes>
                         </configuration>
                     </execution>
@@ -153,6 +154,7 @@
                                 <exclude>**/*pl/kurs/test3advancedlevel/exceptions/*</exclude>
                                 <exclude>**/*pl/kurs/test3advancedlevel/model/*</exclude>
                                 <exclude>**/*pl/kurs/test3advancedlevel/validators/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/Test3AdvancedLevelApplication</exclude>
                             </excludes>
                             <rules>
                                 <rule>
