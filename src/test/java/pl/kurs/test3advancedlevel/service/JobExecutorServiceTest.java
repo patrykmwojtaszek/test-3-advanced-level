@@ -1,15 +1,19 @@
 package pl.kurs.test3advancedlevel.service;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
+import pl.kurs.test3advancedlevel.Test3AdvancedLevelApplication;
 import pl.kurs.test3advancedlevel.model.Job;
 import pl.kurs.test3advancedlevel.model.JobStatus;
 
-import static org.junit.Assert.*;
 
+@SpringBootTest(classes= Test3AdvancedLevelApplication.class)
 public class JobExecutorServiceTest {
 
     @Mock
@@ -20,34 +24,30 @@ public class JobExecutorServiceTest {
     private JobRunner jobRunner;
     @Mock
     private JobStatusChangerService jobStatusChangerService;
-    private JobExecutorService jobExecutorService;
-    private Character letter;
-    private int quantity;
-    private int delay;
+    private IJobExecutorService jobExecutorService;
 
     public JobExecutorServiceTest() {
     }
 
-    @Before
+    @BeforeEach
     public void init() {
         MockitoAnnotations.openMocks(this);
         this.jobExecutorService = new JobExecutorService(this.jobService, this.jobCreatorService, this.jobRunner, this.jobStatusChangerService);
-        this.letter = 'X';
-        this.quantity = 3;
-        this.delay = 100;
     }
 
     @Test
-    public void shouldReturnJobForCreateJob() throws InterruptedException {
-//        Character letter = this.letter;
-//        int quantity = this.quantity;
-//        int delay = this.delay;
-//
-//        Job jobResult = this.jobExecutorService.createAndStartJob(letter, quantity, delay);
-//        Job jobTest = new Job(letter, quantity, delay);
-//        jobTest.setJobStatus(JobStatus.NOT_STARTED);
-////        jobTest.setUuid(jobResult.getUuid());
-//
-//        Assert.assertEquals(jobResult, jobTest);
+    public void createAndStartJob_shouldReturnJobForCreateAndStartJobJob() throws InterruptedException {
+        //given
+        Job job = new Job('x', 3, 10);
+        job.setUuid("xxx");
+        job.setJobStatus(JobStatus.NOT_STARTED);
+        job.setId(1L);
+
+        //when
+        Mockito.when(jobCreatorService.createJob(Mockito.any(Character.class), Mockito.any(Integer.class), Mockito.any(Integer.class))).thenReturn(job);
+        Job jobResult = jobExecutorService.createAndStartJob('x', 3, 10);
+
+        //then
+        Assertions.assertEquals(jobResult, jobResult);
     }
 }

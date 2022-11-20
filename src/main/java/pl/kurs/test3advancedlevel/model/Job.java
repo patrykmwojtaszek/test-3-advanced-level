@@ -1,10 +1,12 @@
 package pl.kurs.test3advancedlevel.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Data
 @Entity
 @Table(name = "jobs")
 public class Job implements Serializable {

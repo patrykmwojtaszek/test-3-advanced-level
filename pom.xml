@@ -75,18 +75,28 @@
             <scope>test</scope>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>junit</groupId>-->
+<!--            <artifactId>junit</artifactId>-->
+<!--            <version>4.13</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>4.1.0</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.8.1</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13</version>
-            <scope>test</scope>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>2.24.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
 
     </dependencies>
@@ -117,11 +127,14 @@
                         </goals>
                         <configuration>
                             <excludes>
-<!--                                <exclude>**/*pl/kurs/test2advancedlevel/app/*</exclude>-->
-<!--                                <exclude>**/*pl/kurs/test2advancedlevel/config/*</exclude>-->
-<!--                                <exclude>**/*pl/kurs/test2advancedlevel/dao/*</exclude>-->
-<!--                                <exclude>**/*pl/kurs/test2advancedlevel/exceptions/*</exclude>-->
-<!--                                <exclude>**/*pl/kurs/test2advancedlevel/model/*</exclude>-->
+                                <exclude>**/*pl/kurs/test3advancedlevel/aspect/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/commands/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/config/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/dto/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/exceptionhandling/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/exceptions/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/model/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/validators/*</exclude>
                             </excludes>
                         </configuration>
                     </execution>
@@ -132,11 +145,14 @@
                         </goals>
                         <configuration>
                             <excludes>
-<!--                                <exclude>**/*pl/kurs/test2advancedlevel/app/*</exclude>-->
-<!--                                <exclude>**/*pl/kurs/test2advancedlevel/config/*</exclude>-->
-<!--                                <exclude>**/*pl/kurs/test2advancedlevel/dao/*</exclude>-->
-<!--                                <exclude>**/*pl/kurs/test2advancedlevel/exceptions/*</exclude>-->
-<!--                                <exclude>**/*pl/kurs/test2advancedlevel/model/*</exclude>-->
+                                <exclude>**/*pl/kurs/test3advancedlevel/aspect/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/commands/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/config/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/dto/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/exceptionhandling/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/exceptions/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/model/*</exclude>
+                                <exclude>**/*pl/kurs/test3advancedlevel/validators/*</exclude>
                             </excludes>
                             <rules>
                                 <rule>
@@ -172,6 +188,25 @@
                 </executions>
             </plugin>
 
+<!--            <plugin>-->
+<!--                <groupId>org.jacoco</groupId>-->
+<!--                <artifactId>jacoco-maven-plugin</artifactId>-->
+<!--                <version>0.8.6</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>prepare-agent</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                    <execution>-->
+<!--                        <id>report</id>-->
+<!--                        <phase>prepare-package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>report</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
 
         </plugins>
     </build>

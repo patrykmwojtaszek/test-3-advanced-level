@@ -59,6 +59,4 @@ public class JobService implements IJobService{
         if (Objects.isNull(entity)) throw new NoEntityException("No entity to add!");
         return jobRepository.save(entity);
     }
-
-
 }

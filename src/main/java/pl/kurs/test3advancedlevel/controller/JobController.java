@@ -68,9 +68,10 @@ public class JobController {
     }
 
     @GetMapping(value = "/findJobById/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity<JobDto> findJobById(@PathVariable(name = "id") long id) {
-        JobDto jobDto = mapper.map(jobService.findJobById(id), JobDto.class);
-        return ResponseEntity.status(HttpStatus.CREATED).body(jobDto);
+    public ResponseEntity<Job> findJobById(@PathVariable(name = "id") long id) {
+        Job jobResult = jobService.findJobById(id);
+//        JobDto jobDto = mapper.map(jobResult, JobDto.class);
+        return ResponseEntity.status(HttpStatus.CREATED).body(jobResult);
     }
 
 

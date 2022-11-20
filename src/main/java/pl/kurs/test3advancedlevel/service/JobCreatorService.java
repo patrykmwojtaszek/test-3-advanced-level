@@ -11,10 +11,6 @@ public class JobCreatorService implements IJobCreatorService{
     private NoArgGenerator generator;
     private IJobService jobService;
 
-//    public JobCreatorService(NoArgGenerator generator) {
-//        this.generator = generator;
-//    }
-
     public JobCreatorService(NoArgGenerator generator, IJobService jobService) {
         this.generator = generator;
         this.jobService = jobService;
